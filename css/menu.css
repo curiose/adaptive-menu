@@ -11,3 +11,96 @@
 .logo {
 	font-weight: 700;
 }
+
+.nav__list {
+	display: flex;
+	align-items: center;
+	margin: 0;
+}
+
+.nav__item:not(:first-child) {
+	margin-left: 20px;
+}
+
+.nav__item {
+	position: relative;
+	padding: 15px 0;
+}
+
+.nav__link--drop::after {
+	content: "";
+	width: 10px;
+	height: 10px;
+	background-image: url("../download.svg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: inline-block;
+	margin-left: 5px;
+	transition: transform 0.3s;
+}
+
+.nav__list--dropdown {
+	position: absolute;
+	background-color: #fff;
+	right: 0;
+	top: 100%;
+	padding: 30px;
+	display: block;
+	box-shadow: 0 5px 15px 0 rgba(0,0,0, 0.2);
+	transition: all 0.3s;
+	opacity: 0;
+	visibility: hidden;
+}
+
+.dropdown-submenu {
+	display: flex;
+	align-items: initial;
+}
+
+.dropdown-submenu__item {
+	flex-grow: 1;
+	min-width: 200px;
+	padding: 0 30px;
+}
+
+.dropdown-submenu__list {
+	padding: 0;
+}
+
+.dropdown-submenu__item:not(:last-child) {
+	border-right: 1px solid #bfbfbf;
+}
+
+.dropdown-submenu__item:first-child {
+	padding-left: 0;
+}
+
+.dropdown-submenu__item:last-child {
+	padding-right: 0;
+}
+
+.mobile-back {
+	display: none;
+}
+
+.dropdown-list__item {
+	margin-bottom: 10px;
+}
+
+.dropdown-submenu__list-item {
+	margin-bottom: 10px;
+}
+
+@media (min-width: 769px) {
+	.nav__link--drop:hover::after {
+		transition: rotate(180deg);
+		transition: all 0.3s;
+	}
+
+	.nav__item:hover .nav__list--dropdown {
+		visibility: visible;
+		opacity: 1;
+		transition: all 0.3s;
+	}
+}
