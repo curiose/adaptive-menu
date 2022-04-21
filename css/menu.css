@@ -182,7 +182,9 @@
 		z-index: 100;
 		box-shadow: 5px 0 15px -5px rgba(0,0,0, 0.8);
 		background-color: #fff;
-		transform: translateY(-150vw);
+		transform: translateX(-150vw);
+		overflow-x: hidden;
+		overflow-y: auto;
 	}
 
 	.nav__list {
@@ -241,5 +243,51 @@
 	.dropdown-submenu__banner {
 		display: inline-block;
 		padding: 20px;
+	}
+
+	.nav__list.transformation {
+		transform: translateX(-100%);
+		transition: all 0.3s;
+	}
+
+	.nav__list--dropdown.transformation {
+		opacity: 1;
+		visibility: visible;
+		display: block;
+		transform: none;
+		background-color: #fff;
+		transition: all 0.3s;
+	}
+
+	.nav.open {
+		transform: translateX(0);
+		transition: all 0.3s;
+	}
+
+	.overlay.open {
+		opacity: 1;
+		visibility: visible;
+		transition: all 0.3s;
+	}
+
+	.mobile-back a {
+		position: relative;
+		border: none;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	}
+
+	.mobile-back a::before {
+		content: "";
+		width: 10px;
+		height: 10px;
+		background-image: url("../download.svg");
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		display: inline-block;
+		margin-right: 10px;
+		transform: rotate(90deg);
 	}
 }
